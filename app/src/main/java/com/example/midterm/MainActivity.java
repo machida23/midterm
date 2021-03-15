@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button leftButton, rightButton;
     private TextView text;
     private int random;
-    public int clicks = 0;
+    public int clicks = 1;
 
 
     @Override
@@ -31,9 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (random == 0) {
                     leftButton.setVisibility(v.VISIBLE);
-
-                } else {
+                    rightButton.setVisibility(v.INVISIBLE);
+                } else if(random == 1) {
                     leftButton.setVisibility(v.INVISIBLE);
+                    rightButton.setVisibility(v.VISIBLE);
 
                 }
                 text.setText("Number of clicks: " + clicks);
@@ -47,10 +48,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
 
                 if (random == 0) {
-                    rightButton.setVisibility(v.INVISIBLE);
-                } else {
-
+                    leftButton.setVisibility(v.INVISIBLE);
                     rightButton.setVisibility(v.VISIBLE);
+                } else if(random == 1){
+                    leftButton.setVisibility(v.VISIBLE);
+                    rightButton.setVisibility(v.INVISIBLE);
                 }
                 text.setText("Number of clicks: " + clicks);
                 clicks++;
